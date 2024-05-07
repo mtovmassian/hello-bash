@@ -1,11 +1,11 @@
-TEST_HELPER_DIR="$(dirname "$BATS_TEST_FILENAME" | xargs dirname)/test_helper"
+TEST_HELPER_DIR="$(dirname "$BATS_TEST_DIRNAME")/test_helper"
 
 setup() {
     load "${TEST_HELPER_DIR}/common-setup"
     _common_setup
 }
 
-@test "non greedy removal" {
+@test "Non greedy removal" {
     run src/variable-vernacular/hello-prefix-removal.sh "_alpha_bravo_charly" "*_" nongreedy
     assert_output "alpha_bravo_charly"
 
@@ -16,7 +16,7 @@ setup() {
     assert_output "bravo_charly"
 }
 
-@test "greedy removal" {
+@test "Greedy removal" {
     run src/variable-vernacular/hello-prefix-removal.sh "_alpha_bravo_charly" "*_" greedy
     assert_output "charly"
 
@@ -27,7 +27,7 @@ setup() {
     assert_output "bravo_charly"
 }
 
-@test "non greedy removal (slash)" {
+@test "Non greedy removal (slash)" {
     run src/variable-vernacular/hello-prefix-removal.sh "./ascript" "*/" nongreedy
     assert_output "ascript"
 
@@ -38,7 +38,7 @@ setup() {
     assert_output "home/guy/bin/ascript"
 }
 
-@test "greedy removal (slash)" {
+@test "Greedy removal (slash)" {
     run src/variable-vernacular/hello-prefix-removal.sh "./ascript" "*/"  greedy
     assert_output "ascript"
 
