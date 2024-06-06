@@ -6,7 +6,7 @@ setup() {
 }
 
 @test "Succeed after 3 attempts" {
-    run src/looping-lingo/hello-until.sh
+    run src/loop/hello-until.sh
     assert_output "$(cat <<EOF
 Failing at doing stuff. Will try again soon...
 Failing at doing stuff. Will try again soon...

@@ -6,7 +6,7 @@ setup() {
 }
 
 @test "Iterate over persons list" {
-    run src/looping-lingo/hello-for-loop-python-style.sh
+    run src/loop/hello-for-loop-python-style.sh
     assert_output "$(cat <<EOF
 Alice Alpha
 Bob Bravo

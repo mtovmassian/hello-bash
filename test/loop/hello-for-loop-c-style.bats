@@ -6,7 +6,7 @@ setup() {
 }
 
 @test "Iterate 10 times" {
-    run src/looping-lingo/hello-for-loop-c-style.sh
+    run src/loop/hello-for-loop-c-style.sh
     assert_output "$(cat <<EOF
 0
 1

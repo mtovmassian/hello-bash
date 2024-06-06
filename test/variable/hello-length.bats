@@ -6,17 +6,17 @@ setup() {
 }
 
 @test "Length of empty string" {
-    run src/variable-vernacular/hello-length.sh ""
+    run src/variable/hello-length.sh ""
     assert_output "0"
 }
 
 @test "Length of non empty string" {
-    run src/variable-vernacular/hello-length.sh "alpha"
+    run src/variable/hello-length.sh "alpha"
     assert_output "5"
 
-    run src/variable-vernacular/hello-length.sh "alpha bravo"
+    run src/variable/hello-length.sh "alpha bravo"
     assert_output "11"
 
-    run src/variable-vernacular/hello-length.sh "alpha bravo charly"
+    run src/variable/hello-length.sh "alpha bravo charly"
     assert_output "18"
 }

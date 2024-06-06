@@ -3,8 +3,9 @@
 set -euo pipefail
 
 main() {
-    set +uo pipefail # Deactivate pipefail to avoid cacthing SIGPIPE signal sent to yes (141)
-    
+    set +u
+    set +o pipefail # Deactivate pipefail to avoid cacthing SIGPIPE signal sent to yes (141)
+
     local custom_string="$1"
 
     if [[ -n "$custom_string" ]]; then
@@ -14,7 +15,8 @@ main() {
         yes \
             | { read -r data && printf "yes outputs default string: %s\n" "$data"; }
     fi
-    set -uo pipefail
+    set -u
+    set +o pipefail
 }
 
 main "$@"
